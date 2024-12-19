@@ -5,7 +5,7 @@ This project is focused on practicing and enhancing skills in:
 * PostgreSQL
 * SQL - advanced topics like indexing, query optimization, and database normalization
 * tools like Flyway for managing database migrations
-</br></br>
+</br></br></br>
 
 ## Docker
 1. Open the terminal/cmd, navigate to the `docker` directory and run the PostgreSQL container:
@@ -46,3 +46,12 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker-compose logs --tail=100
    ```
+</br></br>
+
+## pgAdmin
+As a GUI, we use pgAdmin.\
+Once the containers are running, go to your browser and type:
+```
+http://localhost:8080
+```
+To login, use the data defined in the `docker-compose.yml` file.
