@@ -8,7 +8,7 @@ This project is focused on practicing and enhancing skills in:
 </br></br>
 
 ## Docker
-1. In cmd/terminal go to the `docker` directory and run Postgres container:
+1. Open the terminal/cmd, navigate to the `docker` directory and run the PostgreSQL container:
    ```
    docker-compose up -d
    ```
@@ -18,16 +18,16 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker-compose ps
    ```
-3. Access the Postgres container terminal:
+3. Access the PostgreSQL container terminal:
    ```
    docker exec -it <container_name> sh
    ```
-   If you see `#` then you are logged into the container's operating system shell and have access to its environment.\
+   If you see the `#` prompt, you are logged into the container's shell and have access to its environment.\
    Connect to the PostgreSQL database in the container using the data defined in `docker-compose`:
    ```
    psql -U admin -d postgres_db
    ```
-   You can perform SQL operations:
+   You can now execute SQL queries, such as:
    ```
    CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -39,6 +39,10 @@ This project is focused on practicing and enhancing skills in:
 
    SELECT * FROM users;
    ```
-   Exit the command line client for PostgreSQL (psql) with `\q`.\
-   Use `exit` to exit the sh shell.
-4. ...
+   Exit the PostgreSQL command-line client (psql) by typing `\q`.\
+   Type `exit` o leave the `sh`.\
+   Stop `docker-compose stop` or remove container `docker-compose down`.
+5. If we use the `-d` flag for `docker-compose up`, we can't see the logs. To display them:
+   ```
+   docker-compose logs --tail=100
+   ```
