@@ -7,6 +7,26 @@ services:
       POSTGRES_DB: postgres_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@mail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    networks:
+      - mynetwork
 
 volumes:
   postgres_data:
+  pgadmin_data:
+
+
+networks:
+  mynetwork:
+    driver: bridge
