@@ -7,7 +7,7 @@ This project is focused on practicing and enhancing skills in:
 * tools like Flyway for managing database migrations
 </br></br></br>
 
-## Docker
+## Docker setup and usage
 1. Open the terminal/cmd, navigate to the `docker` directory and run the PostgreSQL container:
    ```
    docker-compose up -d
@@ -40,8 +40,8 @@ This project is focused on practicing and enhancing skills in:
    SELECT * FROM users;
    ```
    Exit the PostgreSQL command-line client (psql) by typing `\q`.\
-   Type `exit` o leave the `sh`.\
-   Stop `docker-compose stop` or remove container `docker-compose down`.
+   Type `exit` to leave the `sh`.\
+   Stop the container by typing `docker-compose stop` or remove it by `docker-compose down`.
 5. If we use the `-d` flag for `docker-compose up`, we can't see the logs. To display them:
    ```
    docker-compose logs --tail=100
