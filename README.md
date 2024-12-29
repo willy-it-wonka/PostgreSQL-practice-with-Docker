@@ -45,6 +45,14 @@ This project is focused on practicing and enhancing skills in:
 5. If we use the `-d` flag for `docker-compose up`, we can't see the logs. To display them:
    ```
    docker-compose logs --tail=100
+   ```   
+7. To delete the volumes and the data in them type `docker volumen ls` to get the name of the volume. Then use the command:
+   ```
+   docker volume rm <volume_name>
+   ```
+   Or when deleting containers use the `-v` flag:
+   ```
+   docker-compose down -v
    ```
 </br></br>
 
