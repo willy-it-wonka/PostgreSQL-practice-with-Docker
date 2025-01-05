@@ -46,7 +46,7 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker-compose logs --tail=100
    ```   
-7. To delete the volumes and the data in them type `docker volumen ls` to get the name of the volume. Then use the command:
+7. To delete the volumes and the data in them type `docker volume ls` to get the name of the volume. Then use the command:
    ```
    docker volume rm <volume_name>
    ```
@@ -57,7 +57,7 @@ This project is focused on practicing and enhancing skills in:
 </br></br>
 
 ## pgAdmin
-As a GUI, we use pgAdmin.\
+As a GUI, we use [pgAdmin](https://www.pgadmin.org).\
 Once the containers are running, go to your browser and type:
 ```
 http://localhost:8080
@@ -66,7 +66,7 @@ To login, use the data defined in the `docker-compose.yml` file.
 </br></br></br>
 
 ## Faker
-To generate data for the database, we will use the [Faker (Python library)](https://pypi.org/project/Faker/).\
+To generate data for the database, we will use the [Faker](https://pypi.org/project/Faker) (Python library).\
 To install it, open the terminal/cmd and type:
 ```
 pip install Faker
