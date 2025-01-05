@@ -46,7 +46,7 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker-compose logs --tail=100
    ```   
-7. To delete the volumes and the data in them type `docker volumen ls` to get the name of the volume. Then use the command:
+7. To delete the volumes and the data in them type `docker volume ls` to get the name of the volume. Then use the command:
    ```
    docker volume rm <volume_name>
    ```
