@@ -92,3 +92,15 @@ These scripts generate random employee and contact data and save it as CSV files
    python generate_contacts.py
    ```
 2. ...
+   - Import data using the pgAdmin graphical interface:
+     1. Navigate to the `employees` table.
+     2. Right-click on the table and select `Import/Export Data...`.
+     3. In the `General` tab, in the `Filename`, click the folder icon.
+     4. Then click `...` / `Options` → `Upload`.
+     5. Select the `employees.csv` file from your disk and click `Close` - the second one, we don't want to close the entire window.
+     6. Mark the file from the list and click `Select`.
+     7. In the `Options` tab, ensure that the following settings are configured:
+        - Header: make sure it is checked, as the CSV file includes a header row.
+        - Delimiter: set to `,` (comma) for CSV files.
+     8. Click `Ok`.
+   - ...
