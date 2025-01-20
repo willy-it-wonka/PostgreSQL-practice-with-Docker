@@ -81,3 +81,14 @@ pip install Faker
 ```
 You can see the usage in `...\scripts\generate_employees.py` and `...\scripts\generate_contacts.py`.\
 These scripts generate random employee and contact data and save it as CSV files in the `scripts` directory.
+</br></br></br>
+
+## 4. Import data
+1. In the terminal, navigate to the `...\scripts` directory and generate the data using Python scripts:
+   ```
+   python generate_employees.py
+   ```
+   ```
+   python generate_contacts.py
+   ```
+2. ...
