@@ -12,7 +12,7 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker-compose up -d
    ```
-   `-d` flag means detach mode - the containers run in the background, and you have access to the terminal.\
+   `-d` flag stands for detach mode - the containers run in the background, and you have access to the terminal.\
    `--build` - add this flag if you change something in `docker-compose.yml`.
 2. Check the list of running containers:
    ```
@@ -46,7 +46,7 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker-compose logs --tail=100
    ```   
-7. To delete the volumes and the data in them type `docker volume ls` to get the name of the volume. Then use the command:
+7. To delete the volumes and the data in them type `docker volume ls` to get the name of the volume. Then, use the following command:
    ```
    docker volume rm <volume_name>
    ```
@@ -70,4 +70,5 @@ To generate data for the database, we will use the [Faker](https://pypi.org/proj
 ```
 pip install Faker
 ```
-You can see the usage in `\scripts_generate_employees.py` and `\scripts_generate_contacts.py`.
+You can see the usage in `...\scripts\generate_employees.py` and `...\scripts\generate_contacts.py`.\
+These scripts generate random employee and contact data and save it as CSV files in the `scripts` directory.
