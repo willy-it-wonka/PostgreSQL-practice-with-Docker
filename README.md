@@ -62,7 +62,16 @@ Once the containers are running, go to your browser and type:
 ```
 http://localhost:8080
 ```
-To login, use the data defined in the `docker-compose.yml` file.
+To login, use the data defined in the `docker-compose.yml` file.\
+Once logged into pgAdmin, you will need to add a new server:
+1. Right-click on `Servers` in the left panel and select `Register` → `Server...`.
+2. In the `General` tab, name the server (e.g. "Company").
+3. In the `Connection` tab, use the following settings (as defined in docker-compose.yml):
+   - Host: `postgres` (the name of the service in docker-compose)
+   - Port: `5432`
+   - Username: `admin`
+   - Password: `admin123`
+   - Maintenance database: `postgres_db`
 </br></br></br>
 
 ## 3. Faker
