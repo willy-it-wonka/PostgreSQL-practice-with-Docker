@@ -105,7 +105,7 @@ python generate_contacts.py
 **• Import data using the terminal:**
 1. Copy the CSV file to the PostgreSQL container:
    ```
-   docker cp path/on/your/disk/PostgreSQL-practice-with-Docker/scripts/contacts.csv <container_name>:/tmp/contacts.csv
+   docker cp path/on/your/disk/scripts/contacts.csv <container_name>:/tmp/contacts.csv
    ```
 2. Login to the PostgreSQL container:
    ```
@@ -119,11 +119,11 @@ python generate_contacts.py
    ```
    COPY contacts FROM '/tmp/contacts.csv' DELIMITER ',' CSV HEADER;
    ```
-5. Verify the data import by running:
+5. Verify the data import:
    ```
    SELECT * FROM contacts LIMIT 10;
    ```
-6. Delete temporary files - a command to use at the PostgreSQL container level:
+6. Delete temporary file (the command to use at the PostgreSQL container level):
    ```
    rm /tmp/contacts.csv
    ```
