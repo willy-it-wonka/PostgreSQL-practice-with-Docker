@@ -90,15 +90,40 @@ python generate_contacts.py
 </br></br>
 
 ## 4. Import data
-- Import data using the pgAdmin graphical interface:
-  1. Navigate to the `employees` table.
-  2. Right-click on the table and select `Import/Export Data...`.
-  3. In the `General` tab, in the `Filename`, click the folder icon.
-  4. Then click `...` / `Options` → `Upload`.
-  5. Select the `employees.csv` file from your disk and click `Close` - the second one, we don't want to close the entire window.
-  6. Mark the file from the list and click `Select`.
-  7. In the `Options` tab, ensure that the following settings are configured:
-      - Header: make sure it is checked, as the CSV file includes a header row.
-     - Delimiter: set to `,` (comma) for CSV files.
-   8. Click `Ok`.
-- ...
+**• Import data using the pgAdmin graphical interface:**
+1. Navigate to the `employees` table.
+2. Right-click on the table and select `Import/Export Data...`.
+3. In the `General` tab, in the `Filename`, click the folder icon.
+4. Then click `...` / `Options` → `Upload`.
+5. Select the `employees.csv` file from your disk and click `Close` - the second one, we don't want to close the entire window.
+6. Mark the file from the list and click `Select`.
+7. In the `Options` tab, ensure that the following settings are configured:
+   - Header: make sure it is checked, as the CSV file includes a header row.
+   - Delimiter: set to `,` (comma) for CSV files.
+8. Click `Ok`.
+
+**• Import data using the terminal:**
+1. Copy the CSV file to the PostgreSQL container:
+   ```
+   docker cp path/on/your/disk/PostgreSQL-practice-with-Docker/scripts/contacts.csv <container_name>:/tmp/contacts.csv
+   ```
+2. Login to the PostgreSQL container:
+   ```
+   docker exec -it <container_name> bash
+   ```
+3. Connect to PostgreSQL database:
+   ```
+   psql -U admin -d postgres_db
+   ```
+4. Import the data into the `contacts` table using the `COPY` command:
+   ```
+   COPY contacts FROM '/tmp/contacts.csv' DELIMITER ',' CSV HEADER;
+   ```
+5. Verify the data import by running:
+   ```
+   SELECT * FROM contacts LIMIT 10;
+   ```
+6. Delete temporary files - a command to use at the PostgreSQL container level:
+   ```
+   rm /tmp/contacts.csv
+   ```
