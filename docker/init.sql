@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS employees (
 CREATE TABLE IF NOT EXISTS contacts (
     employee_id INTEGER PRIMARY KEY,
     email VARCHAR(100) UNIQUE,
-    phone_number VARCHAR(50),
-    address TEXT,
-    city VARCHAR(100),
-    postal_code VARCHAR(20),
+    phone_number VARCHAR(20),
+    address VARCHAR(200),
+    city VARCHAR(50),
+    postal_code VARCHAR(15),
     FOREIGN KEY (employee_id) REFERENCES employees(id) ON DELETE CASCADE
 );
