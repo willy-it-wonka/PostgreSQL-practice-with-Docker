@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS employees (
-    id SERIAL PRIMARY KEY,
+    id GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     salary DECIMAL(10, 2),
