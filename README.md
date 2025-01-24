@@ -20,7 +20,7 @@ This project is focused on practicing and enhancing skills in:
    ```
 3. Access the PostgreSQL container terminal:
    ```
-   docker exec -it <container_name> sh
+   docker exec -it <container_name> bash
    ```
    If you see the `#` prompt, you are logged into the container's shell and have access to its environment.\
    Connect to the PostgreSQL database in the container using the data defined in `docker-compose`:
