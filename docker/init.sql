@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS employees (
     id GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    salary DECIMAL(10, 2),
-    birthday DATE,
-    hire_date DATE,
-    department VARCHAR(50),
-    position VARCHAR(100)
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    salary DECIMAL(10, 2) NOT NULL,
+    birthday DATE NOT NULL,
+    hire_date DATE NOT NULL,
+    department VARCHAR(50) NOT NULL,
+    position VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS contacts (
