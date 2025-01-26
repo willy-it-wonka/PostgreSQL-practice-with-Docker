@@ -1,10 +1,10 @@
 ## Description and goals
 The goal is to deepen understanding of database management, containerization with Docker, and improve proficiency in writing efficient and scalable SQL queries.\
 This project is focused on practicing and enhancing skills in:
-* Docker
-* PostgreSQL
-* SQL - advanced topics like indexing, query optimization, and database normalization
-* tools like Flyway for managing database migrations
+* **Docker**
+* **PostgreSQL**
+* **SQL** - advanced topics like indexing, query optimization, and database normalization
+* database migration management tools such as **Flyway** 
 </br></br></br>
 
 ## 1. Docker setup and usage
@@ -12,7 +12,7 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker-compose up -d
    ```
-   `-d` flag stands for detach mode - the containers run in the background, and you have access to the terminal.\
+   `-d` flag stands for **detach mode** - the containers run in the background, and you have access to the terminal.\
    `--build` - add this flag if you change something in `docker-compose.yml`.
 2. Check the list of running containers:
    ```
@@ -23,7 +23,7 @@ This project is focused on practicing and enhancing skills in:
    docker exec -it <container_name> bash
    ```
    If you see the `#` prompt, you are logged into the container's shell and have access to its environment.\
-   Connect to the PostgreSQL database in the container using the data defined in `docker-compose`:
+4. Connect to the PostgreSQL database in the container using the credentials defined in `docker-compose`:
    ```
    psql -U admin -d postgres_db
    ```
@@ -39,10 +39,11 @@ This project is focused on practicing and enhancing skills in:
 
    SELECT * FROM users;
    ```
+5. Closing:\
    Exit the PostgreSQL command-line client (psql) by typing `\q`.\
-   Type `exit` to leave the `sh`.\
+   Type `exit` to leave the container shell.\
    Stop the container by typing `docker-compose stop` or remove it by `docker-compose down`.
-5. If we use the `-d` flag for `docker-compose up`, we can't see the logs. To display them:
+6. If you used the `-d` flag with `docker-compose up`, you won't see the logs. To display them, use:
    ```
    docker-compose logs --tail=100
    ```   
@@ -50,7 +51,7 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker volume rm <volume_name>
    ```
-   Or when deleting containers use the `-v` flag:
+   Or when removing containers use the `-v` flag:
    ```
    docker-compose down -v
    ```
@@ -79,8 +80,8 @@ To generate data for the database, we will use the [Faker](https://pypi.org/proj
 ```
 pip install Faker
 ```
-You can see the usage in `...\scripts\generate_employees.py` and `...\scripts\generate_contacts.py`. These scripts generate random employee and contact data and save it as CSV files in the `scripts` directory.\
-If you want to generate new data: In the terminal, navigate to the `...\scripts` directory and use the following commands:
+You can find examples of its usage in the following scripts `...\scripts\generate_employees.py` and `...\scripts\generate_contacts.py`. These scripts generate random employee and contact data and save it as CSV files in the `scripts` directory.\
+If you want to generate new data: Navigate to the `scripts` directory in your terminal and run the following commands:
 ```
 python generate_employees.py
 ```
@@ -90,13 +91,13 @@ python generate_contacts.py
 </br></br>
 
 ## 4. Import data
-**• Import data using the pgAdmin graphical interface:**
+**• Import data using pgAdmin:**
 1. Navigate to the `employees` table.
 2. Right-click on the table and select `Import/Export Data...`.
 3. In the `General` tab, in the `Filename`, click the folder icon.
-4. Then click `...` / `Options` → `Upload`.
+4. Then, click `...` / `Options` → `Upload`.
 5. Select the `employees.csv` file from your disk and click `Close` - the second one, we don't want to close the entire window.
-6. Mark the file from the list and click `Select`.
+6. Mark the file in the list and click `Select`.
 7. In the `Options` tab, ensure that the following settings are configured:
    - Header: make sure it is checked, as the CSV file includes a header row.
    - Delimiter: set to `,` (comma) for CSV files.
@@ -127,3 +128,4 @@ python generate_contacts.py
    ```
    rm /tmp/contacts.csv
    ```
+**Note:** The `employees` table should be imported first, as the `contacts` table contains a foreign key referencing `employees`.
