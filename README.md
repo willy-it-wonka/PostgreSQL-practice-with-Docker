@@ -118,11 +118,11 @@ python generate_contacts.py
    ```
 4. Import the data into the `contacts` table using the `COPY` command:
    ```
-   COPY contacts FROM '/tmp/contacts.csv' DELIMITER ',' CSV HEADER;
+   COPY company.contacts FROM '/tmp/contacts.csv' DELIMITER ',' CSV HEADER;
    ```
 5. Verify the data import:
    ```
-   SELECT * FROM contacts LIMIT 10;
+   SELECT * FROM company.contacts LIMIT 10;
    ```
 6. Delete temporary file (the command to use at the PostgreSQL container level):
    ```
