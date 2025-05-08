@@ -4,7 +4,9 @@ This project is focused on practicing and enhancing skills in:
 * **Docker**
 * **PostgreSQL**
 * **SQL** - advanced topics like indexing, query optimization, and database normalization
-* database migration management tools such as **Flyway** 
+* database migration management tools such as **Flyway**
+
+The order of the sections below is intentional — it reflects the natural progression of the project. To make sure everything works as expected, follow them step by step in the given order.
 </br></br></br>
 
 ## 1. Docker setup and usage
@@ -129,3 +131,7 @@ python generate_contacts.py
    rm /tmp/contacts.csv
    ```
 **Note:** The `employees` table should be imported first, as the `contacts` table contains a foreign key referencing `employees`.
+</br></br></br>
+
+
+## 5. Database backup
