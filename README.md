@@ -1,5 +1,5 @@
 ## Description and goals
-The goal is to deepen understanding of database management, containerization with Docker, and improve proficiency in writing efficient and scalable SQL queries.\
+The goal is to deepen understanding of database management, containerization with Docker, and to improve proficiency in writing efficient and scalable SQL queries.\
 This project is focused on practicing and enhancing skills in:
 * **Docker**
 * **PostgreSQL**
@@ -12,7 +12,7 @@ This project is focused on practicing and enhancing skills in:
    ```
    docker-compose up -d
    ```
-   `-d` flag stands for **detach mode** - the containers run in the background, and you have access to the terminal.\
+   `-d` flag stands for **detached mode** - the containers run in the background, and you have access to the terminal.\
    `--build` - add this flag if you change something in `docker-compose.yml`.
 2. Check the list of running containers:
    ```
@@ -23,7 +23,7 @@ This project is focused on practicing and enhancing skills in:
    docker exec -it <container_name> bash
    ```
    If you see the `#` prompt, you are logged into the container's shell and have access to its environment.\
-4. Connect to the PostgreSQL database in the container using the credentials defined in `docker-compose`:
+4. Connect to the PostgreSQL database in the container using the credentials defined in `docker-compose.yml`:
    ```
    psql -U admin -d postgres_db
    ```
@@ -80,7 +80,7 @@ To generate data for the database, we will use the [Faker](https://pypi.org/proj
 ```
 pip install Faker
 ```
-You can find examples of its usage in the following scripts `...\scripts\generate_employees.py` and `...\scripts\generate_contacts.py`. These scripts generate random employee and contact data and save it as CSV files in the `scripts` directory.\
+You can find examples of how to use it in the following scripts `...\scripts\generate_employees.py` and `...\scripts\generate_contacts.py`. These scripts generate random employee and contact data and save it as CSV files in the `scripts` directory.\
 If you want to generate new data: Navigate to the `scripts` directory in your terminal and run the following commands:
 ```
 python generate_employees.py
@@ -101,7 +101,7 @@ python generate_contacts.py
 7. In the `Options` tab, ensure that the following settings are configured:
    - Header: make sure it is checked, as the CSV file includes a header row.
    - Delimiter: set to `,` (comma) for CSV files.
-8. Click `Ok`.
+8. Click `OK`.
 
 **• Import data using the terminal:**
 1. Copy the CSV file to the PostgreSQL container:
