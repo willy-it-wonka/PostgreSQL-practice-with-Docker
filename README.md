@@ -57,6 +57,8 @@ The order of the sections below is intentional — it reflects the natural progr
    ```
    docker-compose down -v
    ```
+**Note on database initialization:**\
+When the PostgreSQL container starts for the first time (or after its data volume has been cleared), it will automatically execute SQL scripts located in its `/docker-entrypoint-initdb.d/` directory. In this project, the `docker/init.sql` script is configured (via `docker-compose.yml`) to be run during initialization phase. This script is responsible for creating the necessary database schema and defining the employees and contacts tables.
 </br></br>
 
 ## 2. pgAdmin
