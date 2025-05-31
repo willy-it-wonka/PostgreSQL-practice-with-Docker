@@ -32,7 +32,7 @@ if "$DOCKER_COMPOSE_CMD" -f "$DOCKER_COMPOSE_FILE" exec -T -e PGPASSWORD="$DB_PA
     echo "$(date): Backup completed: $BACKUP_FILE" >> "$LOG_FILE"
     exit 0
 else
-    ERROR_MSG="Backup FAILED for database $DB_NAME. Check $BACKUP_FILE (may be empty/incomplete) and system logs."
+    ERROR_MSG="Backup FAILED for database '$DB_NAME'. An attempt was made to create '$BACKUP_FILE', but it failed and the file has been removed."
     echo "$(date): $ERROR_MSG" >> "$LOG_FILE"
     rm -f "$BACKUP_FILE"
     exit 1
