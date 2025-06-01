@@ -137,12 +137,14 @@ python generate_contacts.py
 
 
 ## 5. Database backup
-This project includes `backup.sh` script, designed to automate the process of creating backups of PostgreSQL database running inside a Docker container.\
-**How it Works:**
-* The backup.sh script utilizes docker-compose exec to run the pg_dump command inside the postgres service container.
-* The resulting SQL dump file is saved to the `backups/` directory located at the root of this project on your host machine.
-* Each backup file is timestamped (backup_YYYY-MM-DD_HH-MM-SS.sql).
-* The script logs its activity to the `$PROJECT_ROOT/backups/cron.log` file.
+This project includes a `backup.sh` script, designed to automate the process of creating backups of the PostgreSQL database running inside a Docker container.\
+**How it works:**
+- The backup.sh script utilizes docker-compose exec to run the pg_dump command inside the postgres service container.
+- The resulting SQL dump file is saved to the `backups/` directory located at the root of this project on your host machine.
+- Each backup file is timestamped (backup_YYYY-MM-DD_HH-MM-SS.sql).
+- The script logs its activity to the `$PROJECT_ROOT/backups/cron.log` file.
+
+**How to use it:**
 1. Open the `backup.sh` script and make sure the variables at the top are configured correctly for your environment (including PROJECT_ROOT).
 2. Make the script executable: navigate to the project's root directory in your terminal and run:
    ```
