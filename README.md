@@ -24,7 +24,7 @@ The order of the sections below is intentional — it reflects the natural progr
    ```
    docker exec -it <container_name> bash
    ```
-   If you see the `#` prompt, you are logged into the container's shell and have access to its environment.\
+   If you see the `#` prompt, you are logged into the container's shell and have access to its environment.
 4. Connect to the PostgreSQL database in the container using the credentials defined in `docker-compose.yml`:
    ```
    psql -U admin -d postgres_db
@@ -139,7 +139,7 @@ python generate_contacts.py
 ## 5. Database backup
 This project includes a `backup.sh` script, designed to automate the process of creating backups of the PostgreSQL database running inside a Docker container.\
 **How it works:**
-- The backup.sh script utilizes docker-compose exec to run the pg_dump command inside the postgres service container.
+- The `backup.sh` script utilizes docker-compose exec to run the pg_dump command inside the postgres service container.
 - The resulting SQL dump file is saved to the `backups/` directory located at the root of this project on your host machine.
 - Each backup file is timestamped (backup_YYYY-MM-DD_HH-MM-SS.sql).
 - The script logs its activity to the `$PROJECT_ROOT/backups/cron.log` file.
@@ -150,4 +150,16 @@ This project includes a `backup.sh` script, designed to automate the process of 
    ```
    chmod +x scripts/backup.sh
    ```
-3. .
+   To schedule the `backup.sh` script to run automatically, we need to add a job to the user's crontab:
+3. In the terminal, execute:
+   ```
+   crontab -e
+   ```
+   If this is your first time running crontab, you might be prompted to select a text editor (e.g., nano, vim). Choose one you are comfortable with.
+4. Add the cron job entry:
+   ```
+   0 2 * * * /home/USER/Desktop/PostgreSQL-practice-with-Docker/scripts/backup.sh
+   ```
+5. Save the crontab file and exit the editor.
+   For nano: Press Ctrl+O (Write Out), then Enter to confirm, then Ctrl+X to exit.\
+   For vim: Press Esc, then type :wq and press Enter.
