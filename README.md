@@ -136,13 +136,13 @@ python generate_contacts.py
 </br></br></br>
 
 
-## 5. Database backup
+## 5. Database backup automation
 This project includes a `backup.sh` script, designed to automate the process of creating backups of the PostgreSQL database running inside a Docker container.\
 **How it works:**
 - The `backup.sh` script utilizes docker-compose exec to run the pg_dump command inside the postgres service container.
 - The resulting SQL dump file is saved to the `backups/` directory located at the root of this project on your host machine.
 - Each backup file is timestamped (backup_YYYY-MM-DD_HH-MM-SS.sql).
-- The script logs its activity to the `$PROJECT_ROOT/backups/cron.log` file.
+- The script logs its activity to the `PROJECT_ROOT/backups/cron.log` file.
 
 **How to use it:**
 1. Open the `backup.sh` script and make sure the variables at the top are configured correctly for your environment (including PROJECT_ROOT).
@@ -160,6 +160,13 @@ This project includes a `backup.sh` script, designed to automate the process of 
    ```
    0 2 * * * /home/USER/Desktop/PostgreSQL-practice-with-Docker/scripts/backup.sh
    ```
-5. Save the crontab file and exit the editor.
+   **Important:** Replace the above root with the actual, absolute path to the `backup.sh` script on your system.\
+   Explanation of the cron schedule `0 2 * * *`:\
+   `0` - minute (0th minute of the hour)\
+   `2` - hour (2 AM, using 24-hour format)\
+   `*` - day of the month (any day)\
+   `*` - month (any month)\
+   `*` - day of the week (any day of the week)
+6. Save the crontab file and exit the editor.\
    For nano: Press Ctrl+O (Write Out), then Enter to confirm, then Ctrl+X to exit.\
    For vim: Press Esc, then type :wq and press Enter.
