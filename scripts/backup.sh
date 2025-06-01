@@ -1,11 +1,12 @@
 #!/bin/bash
 
+# Credentials compliant with docker-compose.
 POSTGRES_SERVICE_NAME="postgres"
 DB_NAME="postgres_db"
 DB_USER="admin"
 DB_PASSWORD="admin123"
 
-PROJECT_ROOT="/home/ja/Pulpit/PostgreSQL-practice-with-Docker"
+PROJECT_ROOT="/home/ja/Pulpit/PostgreSQL-practice-with-Docker" # Change to a path suitable for your computer.
 DOCKER_COMPOSE_FILE="$PROJECT_ROOT/docker/docker-compose.yml"
 BACKUP_DIR="$PROJECT_ROOT/backups"
 LOG_FILE="$BACKUP_DIR/cron.log"                   
