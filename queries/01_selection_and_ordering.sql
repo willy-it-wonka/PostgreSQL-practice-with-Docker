@@ -23,6 +23,12 @@ SELECT * FROM company.employees WHERE hire_date BETWEEN '2022-01-01' AND '2022-1
 -- Find employees from the 'Sales' or 'Marketing' departments.
 SELECT * FROM company.employees WHERE department IN ('Sales', 'Marketing');
 
+-- Find employees without an assigned position.
+SELECT * FROM company.employees WHERE position IS NULL;
+
+-- Find a list of (non-repeating) departments.
+SELECT DISTINCT department FROM company.employees;
+
 
 
 /****************************************************/
