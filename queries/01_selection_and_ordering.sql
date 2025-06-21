@@ -43,3 +43,27 @@ SELECT * FROM company.employees WHERE position LIKE '%Manager%';
 
 -- Find employees whose first_name matches the pattern: 'A', any single character, 'a', any sequence of characters.
 SELECT * FROM company.employees WHERE first_name LIKE 'A_a%';
+
+
+
+/****************************************************/
+/*    Sorting (ORDER BY) and LIMITing results       */
+/****************************************************/
+
+-- Find all employees and order by last name.
+SELECT * FROM company.employees ORDER BY last_name ASC;
+
+-- Find employees with IDs from 21 to 30 (pagination example).
+SELECT * FROM company.employees ORDER BY id LIMIT 10 OFFSET 20;
+
+-- Find the top 10 highest-paid employees.
+SELECT * FROM company.employees ORDER BY salary DESC LIMIT 10;
+
+-- Find the next 5 highest-paid employees (ranks 11 to 15 by salary).
+SELECT * FROM company.employees ORDER BY salary DESC LIMIT 5 OFFSET 10;
+
+-- Find the top 10 lowest-paid employees.
+SELECT * FROM company.employees ORDER BY salary ASC LIMIT 10;
+
+-- Find employees by department (A-Z), then by last name (A-Z).
+SELECT department, last_name, first_name FROM company.employees ORDER BY department ASC, last_name ASC;
