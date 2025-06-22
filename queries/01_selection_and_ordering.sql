@@ -38,10 +38,10 @@ SELECT DISTINCT department FROM company.employees;
 -- Find employees whose first name starts with 'A'.
 SELECT * FROM company.employees WHERE first_name LIKE 'A%';
 
--- Find employees whose last name ends with 'EZ (case-sensitive) = 0 rows.
+-- Find employees whose last name ends with 'EZ' (case-sensitive) = 0 rows.
 SELECT * FROM company.employees WHERE last_name LIKE '%EZ';
 
--- Find employees whose last name ends with 'EZ (case-insensitive).
+-- Find employees whose last name ends with 'EZ' (case-insensitive).
 SELECT * FROM company.employees WHERE last_name ILIKE '%EZ';
 
 -- Find employees whose position contains the word 'Manager'.
