@@ -79,10 +79,12 @@ ORDER BY avg_salary DESC;
    the subquery is executed separately to calculate the value for this new column. 
    WARNING: it must return only one value (one row, one column). */
 
+-- A. Retrieve a simple, related value.
 -- Find each employee's email address and display it in a separate column.
-SELECT first_name, last_name, (
-        SELECT email
-        FROM company.contacts
-        WHERE employee_id = company.employees.id
+SELECT e.first_name, e.last_name, (
+        SELECT c.email
+        FROM company.contacts c
+        WHERE c.employee_id = e.id
     ) AS email
-FROM company.employees;
+FROM company.employees e;
+-- Good practice: use JOIN because N+1 problem.
