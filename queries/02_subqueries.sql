@@ -58,7 +58,8 @@ WHERE NOT EXISTS (
 /*    Subqueries in the FROM clause                 */
 /****************************************************/
 
--- A subquery creates a virtual (derived) table, which the outer query can then filter, group, or sort.
+/* A subquery creates a virtual (derived) table, which the outer query can then filter, group, or sort. */
+
 -- Find the average salary for each department.
 SELECT department, avg_salary
 FROM (
@@ -69,3 +70,19 @@ FROM (
 ORDER BY avg_salary DESC;
 
 
+
+/****************************************************/
+/*    Subqueries in the SELECT clause               */
+/****************************************************/
+
+/* It is used to add a new column to the result. For each row returned by the external query,
+   the subquery is executed separately to calculate the value for this new column. 
+   WARNING: it must return only one value (one row, one column). */
+
+-- Find each employee's email address and display it in a separate column.
+SELECT first_name, last_name, (
+        SELECT email
+        FROM company.contacts
+        WHERE employee_id = company.employees.id
+    ) AS email
+FROM company.employees;
