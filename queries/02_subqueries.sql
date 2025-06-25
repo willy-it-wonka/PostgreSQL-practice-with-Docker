@@ -88,3 +88,25 @@ SELECT e.first_name, e.last_name, (
     ) AS email
 FROM company.employees e;
 -- Good practice: use JOIN because N+1 problem.
+
+-- B. Calculate an aggregate value related to the current row.
+-- Find each employee's salary and the average salary of their department.
+SELECT e.first_name, e.last_name, e.salary, e.department, (
+      SELECT ROUND(AVG(sub.salary), 2)
+      FROM company.employees sub
+      WHERE sub.department = e.department
+    ) AS department_avg_salary
+FROM company.employees e;
+
+-- C. Conditional logic in subqueries.
+-- For each employee, check if they are the highest earner in their department.
+SELECT e.first_name, e.last_name, e.salary, e.department,
+    CASE
+        WHEN e.salary = (
+            SELECT MAX(sub.salary) 
+            FROM company.employees sub 
+            WHERE sub.department = e.department)
+        THEN 'Highest in department'
+        ELSE 'Nope'
+    END AS salary_status
+FROM company.employees e;
