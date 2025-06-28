@@ -19,6 +19,8 @@ SELECT * FROM company.employees WHERE salary BETWEEN 5000 AND 6000;
 
 -- Find employees hired in the year 2022.
 SELECT * FROM company.employees WHERE hire_date BETWEEN '2022-01-01' AND '2022-12-31';
+-- Using a half-open interval (>= and <) is safer than BETWEEN for TIMESTAMP columns.
+SELECT * FROM company.employees WHERE hire_date >= DATE '2022-01-01' AND hire_date < DATE '2023-01-01';
 
 -- Find employees from the 'Sales' or 'Marketing' departments.
 SELECT * FROM company.employees WHERE department IN ('Sales', 'Marketing');
