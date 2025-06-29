@@ -71,3 +71,17 @@ FROM
     company.employees
 GROUP BY
     department;
+
+-- Count employees by department and position.
+SELECT
+    department,
+    position,
+    COUNT(*) as employee_count
+FROM
+    company.employees
+GROUP BY
+    department,
+    position
+ORDER BY
+    department,
+    position;
