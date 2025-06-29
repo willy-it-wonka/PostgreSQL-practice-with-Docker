@@ -2,7 +2,7 @@
 /*    Basic aggregation functions                   */
 /****************************************************/
 
-/* Used to perform a calculation on a set of values. */
+/* Used to perform calculations on sets of values. */
 
 -- Count the total number of IT employees.
 SELECT
@@ -43,7 +43,7 @@ FROM
 /*    Grouping data with GROUP BY                   */
 /****************************************************/
 
-/* Used with aggregate functions to group rows with same values. */
+/* Used with aggregate functions to group rows with the same values. */
 
 -- Count the number of employees in each department.
 SELECT
@@ -85,3 +85,35 @@ GROUP BY
 ORDER BY
     department,
     position;
+
+
+
+/****************************************************/
+/*    Filtering groups with HAVING                  */
+/****************************************************/
+
+/* HAVING is used to filter groups after aggregation. WHERE filters rows before aggregation. */
+
+-- Find departments that have more than 30 employees.
+SELECT
+    department,
+    COUNT(*) AS employee_count
+FROM
+    company.employees
+GROUP BY
+    department
+HAVING
+    COUNT(*) > 30
+ORDER BY
+    employee_count;
+
+-- Find departments where the average salary is less than 6666.
+SELECT
+    department,
+    ROUND(AVG(salary), 2) AS avg_salary
+FROM
+    company.employees
+GROUP BY
+    department
+HAVING
+    AVG(salary) < 6666;
